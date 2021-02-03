@@ -1,0 +1,15 @@
+#Configuring GIT
+-- Create Git directory (Directory to add the files that you wish to add to your git repository) - mkdir cheat
+-- Change to the directory - cd cheat
+-- Configure your Git reposiroty
+   git remote add origin <URL>
+   git config --global user.name <username>
+   git config --global user.email <email address>
+   git config --global color.ui true
+   git config --global core.editor emacs
+-- Create your file -- vim git
+-- Enter information and save
+-- Save your changes to git
+   git add -A
+   git commit -m "description"
+   git push -u origin master
