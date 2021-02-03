@@ -4,3 +4,24 @@ sudo docker run -it --rm -d -p 8080:80 nginx
 # By default, Nginx looks in the /usr/share/nginx/html directory inside of the container for files to serve. We need to get our html files into this directory. A fairly simple way to do this is use a mounted volume. With mounted volumes, we are able to link a directory on our local machine and map that directory into our running container.
 # Create a directory named site-content. In this directory add an index.html file and add content to it. Then start nginx as below:
 sudo docker run -it --rm -d -p 8080:80 -v ~/site-content:/usr/share/nginx/html nginx
+
+#Building nginx custom image
+
+# Images enable us to move our deployments instead of just having them on our local devices
+# Create a dockerfile in the same directory (in this case site-content) and add the following content
+
+FROM nginx:latest
+COPY ./index.html /usr/share/nginx/html/index.html
+
+# We start building our custom image by using a base image. On line 1, you can see we do this using the FROM command. This will pull the nginx:latest image to our local machine and then build our custom image on top of it.
+
+# Next, we COPY our index.html file into the /usr/share/nginx/html directory inside the container overwriting the default index.html file provided by nginx:latest image.
+
+# You’ll notice that we did not add an ENTRYPOINT or a CMD to our Dockerfile. We will use the underlying ENTRYPOINT and CMD provided by the base NGINX image.
+
+# Build the image
+
+docker build -t nginx .
+
+# And run the image
+docker run -it --rm -d -p 8080:80 nginx
