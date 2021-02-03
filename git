@@ -12,6 +12,8 @@
 -- Create your file -- vim git
 -- Enter information and save
 -- Save your changes to git
+
+# Push Changes to Git
    git add -A
    git commit -m "description"
    git push -u origin master
