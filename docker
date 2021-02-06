@@ -25,3 +25,23 @@ docker build -t nginx .
 
 # And run the image
 docker run -it --rm -d -p 8080:80 nginx
+
+MiNIKUBE KUBERNETES
+
+# Minikube is used to carry out local Kebernetes tests and for learning purposes. It Creates a single node local Kubernetes cluster. It requires docker or a hypervisor such as KVM, HyperV or VirtualBox ro run locally. For my case, I an running with VirtualBox
+#
+#To start minikube with VirtualBox
+minikube start --vm-driver=virtualbox
+
+# Run Nginx deployment
+
+kubectl create deployment nginx --image=nginx:latest -o yaml > nginx.yml
+kubectl expose deployment nginx --type=NodePort -o yaml > nginx.yml
+
+kubectl describe service nginx
+
+# get nginx url
+
+minikube services nginx --url
+
+
