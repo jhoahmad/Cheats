@@ -44,4 +44,9 @@ kubectl describe service nginx
 
 minikube services nginx --url
 
+# Scale deployment
+
+kubectl scale deployment nginx --replicas=2
+
+
 
