@@ -23,5 +23,8 @@
 
 # Show file differences which are not yet staged
   git diff
+  git diff --staged # show changes on staged files before being committed.
 
-# Git 
+# Staged and Unstaged changes
+staged - files have been marked for the next commit by using 'git add'
+unstaged - files have not been marked for the next commit. In this case, you can discard the changes by running 'git restore'
