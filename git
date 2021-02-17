@@ -34,6 +34,9 @@ git reset <filename>
 git reset commit  #undo all commits and preserves the changes locally
 git reset --hard commit # discards all history and goes back to the specified commit
 
-
+# git checkout - used to switch from one branch to another
+git branch # displays the current branch
+git checkout -b test # get out of the current branch, creates a new branch called test and switches to it.
+git merge # matches the specified branch history to the current brach
 
 
