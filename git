@@ -17,3 +17,10 @@
    git add -A
    git commit -m "description"
    git push -u origin master
+
+# commit any files you've added with the git add command and also commits any files you've changed since then
+  git commit -a
+
+# Show file differences which are not yer staged
+  git diff
+
