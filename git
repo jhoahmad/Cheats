@@ -28,3 +28,12 @@
 # Staged and Unstaged changes
 staged - files have been marked for the next commit by using 'git add'
 unstaged - files have not been marked for the next commit. In this case, you can discard the changes by running 'git restore'
+
+# Git reset - unstages a file but preserves the file content
+git reset <filename>
+git reset commit  #undo all commits and preserves the changes locally
+git reset --hard commit # discards all history and goes back to the specified commit
+
+
+
+
