@@ -39,4 +39,7 @@ git branch # displays the current branch
 git checkout -b test # get out of the current branch, creates a new branch called test and switches to it.
 git merge # matches the specified branch history to the current brach
 
+# Connect local repository to the remote server
+git remote add [variable name] [remote server link]
+
 
