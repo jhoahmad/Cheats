@@ -17,14 +17,15 @@
    git add -A
    git commit -m "description"
    git push -u origin master
-
+git pull #download everyone else's changes and work on the most current master . NB You pull before pushing
+git clone # make a copy of the entire remote repository and your local machine
 # commit any files you've added with the git add command and also commits any files you've changed since then
   git commit -a
 
 # Show file differences which are not yet staged
   git diff # show the actual changes that were made for all unstaged files
   git diff --staged # show changes on staged files before being committed.
-
+  git diff --color-words # to see only the words you have changed
 # Staged and Unstaged changes
 staged - files have been marked for the next commit by using 'git add'
 unstaged - files have not been marked for the next commit. In this case, you can discard the changes by running 'git restore'
@@ -38,6 +39,12 @@ git reset --hard commit # discards all history and goes back to the specified co
 git branch # displays the current branch
 git checkout -b test # get out of the current branch, creates a new branch called test and switches to it.
 git merge # matches the specified branch history to the current brach
+git branch -m <new-branchname> #rename your current branch
+git checkout - #Lets you go to the last branch you were in without having to type the name
+git checkout . # erases all your work 
+# e.g
+git checkout <filename> . # erases all the work in that specific file
+
 
 # Connect local repository to the remote server
 git remote add [variable name] [remote server link]
@@ -50,4 +57,3 @@ git stash apply
 git stash branch <new branch>
 
 # git grep - lets you search your entire codebase for a phrase, printing out the line containing the phrase as well as the file containing it.
-
