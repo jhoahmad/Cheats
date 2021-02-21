@@ -1,5 +1,10 @@
 # Run nginx docker
-sudo docker run -it --rm -d -p 8080:80 nginx
+docker pull nginx
+docker run -p 8080:80 -d nginx
+# access nginx container
+docker exec -it <container-id> /bin/sh
+
+
 # Adding custom HTML
 # By default, Nginx looks in the /usr/share/nginx/html directory inside of the container for files to serve. We need to get our html files into this directory. A fairly simple way to do this is use a mounted volume. With mounted volumes, we are able to link a directory on our local machine and map that directory into our running container.
 # Create a directory named site-content. In this directory add an index.html file and add content to it. Then start nginx as below:
