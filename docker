@@ -4,6 +4,11 @@ docker run -p 8080:80 -d nginx
 # access nginx container
 docker exec -it <container-id> /bin/sh
 
+# Install editor within container
+# To install editor, you need to run update command first
+apt-get update
+apt-get install git
+
 
 # Adding custom HTML
 # By default, Nginx looks in the /usr/share/nginx/html directory inside of the container for files to serve. We need to get our html files into this directory. A fairly simple way to do this is use a mounted volume. With mounted volumes, we are able to link a directory on our local machine and map that directory into our running container.

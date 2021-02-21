@@ -8,7 +8,7 @@
    git config --global color.ui true
    git config --global core.editor emacs
 
-# Creating Lical File
+# Creating Local File
 -- Create your file -- vim git
 -- Enter information and save
 -- Save your changes to git
@@ -22,7 +22,7 @@
   git commit -a
 
 # Show file differences which are not yet staged
-  git diff
+  git diff # show the actual changes that were made for all unstaged files
   git diff --staged # show changes on staged files before being committed.
 
 # Staged and Unstaged changes
@@ -42,4 +42,12 @@ git merge # matches the specified branch history to the current brach
 # Connect local repository to the remote server
 git remote add [variable name] [remote server link]
 
+# git stash - if you have made some changes which you have not yet staged for commit and you realize that there is something to need to urgently address first. Instead of running 'git restore' to discard the changes which you may need after you have addressed the urgent situation, 'git stash' comes into play. It takes the changes and save them elsewhere and allows you to work on a clean branch. When you are done and want to get what was saved back, you run 'git stash apply'
+git stash
+git stash apply
+
+# or create a new branch with
+git stash branch <new branch>
+
+# git grep - lets you search your entire codebase for a phrase, printing out the line containing the phrase as well as the file containing it.
 
