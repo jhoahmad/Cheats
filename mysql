@@ -1,0 +1,17 @@
+# mysql master/master replication also called mirroring
+Install the latest mysql version
+Install exactly the same mysql versions on both instances
+
+# configure replication
+Edit mysql configuration file
+vim /etc/mysql/my.cnf
+# Add the following content for the master server
+server-id=1
+log-bin="mysql-bin"
+binlog-ignore-db=test
+binlog-ignore-db=information_schema
+replicate-ignore-db=test
+replicate-ignore-db=information_schema
+relay-log="mysql-relay-log"
+auto-increment-increment = 2
+auto-increment-offset = 1
