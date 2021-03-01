@@ -56,8 +56,62 @@ resource "openstack_compute_keypair_v2" "my-cloud-key" {
   name       = "my-key"
   public_key = "ssh-rsa AAAAB3Nz..."
 }
+6. Provide openstack credentials
 
+provider "openstack" {
+  user_name = "username"
+  password  = "password"
+  auth_url  = "http://<IP>/identity"
+  user_domain_name = "Default"
+  project_domain_name = "Default"
+} 
 6. Run terraform plan
 
 7. Create an instance resource
+resource "openstack_compute_instance_v2" "my_instance" {
+  name      = "my_instance"
+  image_id  = "0b89b169-0ddb-46df-94cd-748692421574"
+  flavor_name = "m1.small"
+  key_pair  = "my-key"
 
+  network {
+    uuid = "ad3eddbb-fc0f-4450-a427-3f050ea2f0e1"
+    name = "public_net"
+  }
+}
+
+8. run terraform apply
+
+
+# The Script
+
+terraform {
+required_version = ">= 0.14.0"
+  required_providers {
+    openstack = {
+      source  = "terraform-provider-openstack/openstack"
+      version = "~> 1.35.0"
+    }
+  }
+}
+
+provider "openstack" {
+  user_name = "username"
+  password  = "password"
+  auth_url  = "http://<ip>/identity"
+  user_domain_name = "Default"
+  project_domain_name = "Default"
+}
+
+
+resource "openstack_compute_instance_v2" "my_instance" {
+  name      = "my_instance"
+  image_id  = "0b89b169-0ddb-46df-94cd-748692421574"
+  flavor_name = "m1.small"
+  key_pair  = "my-key"
+
+  network {
+    uuid = "ad3eddbb-fc0f-4450-a427-3f050ea2f0e1"
+    name = "public_net"
+  }
+}
