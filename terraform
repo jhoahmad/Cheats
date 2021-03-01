@@ -115,3 +115,22 @@ resource "openstack_compute_instance_v2" "my_instance" {
     name = "public_net"
   }
 }
+
+# check vm created, e.g its IP address
+terraform show
+
+
+# What is you want to add more VMs to create a cluster?
+# The configuration is similar to the above. we only need to add the configuration for the new VMs
+ resource "openstack_compute_instance_v2" "exec" {
+  name            = "exec-${count.index}"
+  image_name      = "denbi-centos7-j10-2e08aa4bfa33-master"
+  flavor_name     = "m1.tiny"
+  key_pair        = "${openstack_compute_keypair_v2.my-cloud-key.name}"
+  security_groups = ["default"]
+  count           = 2
+
+  network {
+    name = "public"
+  }
+}
