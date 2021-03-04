@@ -1,10 +1,9 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
-MAINTAINER Lorna Chepkoech
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python-dev
 
-RUN apt-get update \
-    && apt-get install -y nginx \
-    && apt-get clean 
+COPY app1.py .
 
-EXPOSE 80
-CMD ["nginx"]
+CMD [ "python", "./app1.py" ]
+
