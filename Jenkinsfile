@@ -1,7 +1,7 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://hub.docker.com/', 'd9cc0f03-3410-4766-bd7d-4ebe1868361f') {
+    docker.withRegistry('https://hub.docker.com/', 'cheplorna') {
 
         def customImage = docker.build("testapp:${env.BUILD_ID}")
 
