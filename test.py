@@ -5,3 +5,4 @@ if 5 > 2:
     print("My Jenkins working fine")
     print("Allan was here")
     print("Here learning docker and Jenkins")
+    print("some of these things are hard")
