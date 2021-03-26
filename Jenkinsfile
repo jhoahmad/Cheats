@@ -7,6 +7,6 @@ node {
 
         /* Push the container to the custom Registry */
         sh "docker tag testapp:${env.BUILD_ID} cheplorna/lorna:latest"
-        customImage.push()
+        sh "docker push"
     }
 }
