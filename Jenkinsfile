@@ -6,6 +6,7 @@ node {
         def customImage = docker.build("testapp:${env.BUILD_ID}")
 
         /* Push the container to the custom Registry */
+        customImage.tag("cheplorna/lorna","latest")
         customImage.push()
     }
 }
