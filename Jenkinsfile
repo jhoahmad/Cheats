@@ -1,12 +1,16 @@
 node {
-    checkout scm
 
+  checkout scm
+  def dockerImage
+
+  stage('Build image') {
+    dockerImage = docker.build("cheplorna/lorna:${env.BUILD_ID}")
+  }
+
+  stage('Push image') {
     docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub') {
-
-        def customImage = docker.build("testapp:${env.BUILD_ID}")
-
-        /* Push the container to the custom Registry */
-        sh "docker tag testapp:${env.BUILD_ID} cheplorna/lorna:testapp"
-        sh "docker push cheplorna/lorna:testapp"
+      dockerImage.push()
     }
+  }
+
 }
