@@ -1,11 +1,16 @@
 node {
-    checkout scm
 
-    docker.withRegistry('https://hub.docker.com', 'dockerHub') {
+  checkout scm
+  def dockerImage
 
-        def customImage = docker.build("testapp:${env.BUILD_ID}")
+  stage('Build image') {
+    dockerImage = docker.build("cheplorna/lorna:${env.BUILD_ID}")
+  }
 
-        /* Push the container to the custom Registry */
-        customImage.push()
+  stage('Push image') {
+    docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub') {
+      dockerImage.push()
     }
+  }
+
 }
