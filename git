@@ -57,3 +57,11 @@ git stash apply
 git stash branch <new branch>
 
 # git grep - lets you search your entire codebase for a phrase, printing out the line containing the phrase as well as the file containing it.
+#
+# Troubleshooting
+Scenerio1: fatal: remote origin already exists.
+Solution: git remote set-url origin https://<repository name>
+
+Scenerio2: fatal: refusing to merge unrelated histories
+Solution: git pull origin master --allow-unrelated-histories
+
