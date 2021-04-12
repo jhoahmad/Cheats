@@ -14,7 +14,7 @@ node {
   }
 
  stage('Deploy App') {
-	sh "kubectl get nodes"
+	sh "microk8s.kubectl get nodes"
         script {
           kubernetesDeploy(kubeconfigId: "Kubecluster2")
 }
