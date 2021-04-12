@@ -13,4 +13,12 @@ node {
     }
   }
 
+ stage('Deploy App') {
+	sh "microk8s kubectl get nodes"
+        script {
+          kubernetesDeploy(kubeconfigId: "Kubecluster")
+}
+
+}
+
 }
