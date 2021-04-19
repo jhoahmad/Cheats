@@ -1,7 +1,9 @@
 node {
-
-  checkout scm
-  def dockerImage
+  stage('Checkout code') {
+    steps {
+     checkout scm
+            }
+        }
 
   stage('Build image') {
     dockerImage = docker.build("cheplorna/lorna:${env.BUILD_ID}")
