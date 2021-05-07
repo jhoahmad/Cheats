@@ -1,0 +1,22 @@
+# tail - print first or last lines of a file
+tail <filename> # output the last one page of the file
+tail -2 <filename> # print the last two lines of the file
+tail -5 <filename> # print the last five lines of the file
+tail +2 <failname> # print the lines of the file starting from the 2nd 
+tail +5 <filename> #print the lines of the file staring from the 5th one
+tail -f <filename> # follow trail of the file 
+
+# wc - word count - counts the number of lines, words and characters of a file
+wc <filename>
+# pr - print - outputs the file content
+pr <filename>
+# cmp $ diff - check the difference between files
+
+# ps - process status - gives information about linux processes
+ps # list all running processes for that user on the shell
+ps -A # view all running processes in generic (Linux) format
+ps -e # view all running processes in generic (Linux) format
+ps -au/aux # display all running processes in DSB format
+
+
+ 

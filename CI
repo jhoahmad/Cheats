@@ -1,0 +1,77 @@
+# CI and CD
+CI - Contiuous integration - Allowing developers to seamlessly work on a product without getting on each other's toes and ensuring the codes are brought to a single point for testing 
+CD - Continious Delivery- Releasing the versions of the ready product automatically
+     Continuous Deployment - Continuously updating the released product which is now hosted by a cloud provider
+Jenkins - Build management system, takes the code and builds it - is integrated with Docker
+
+# Deploy App On K8s
+
+pipeline {
+
+  agent any
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/vamsijakkula/hellowhale.git', branch:'master'
+      }
+    }
+    
+      stage("Build image") {
+            steps {
+                script {
+                    myapp = docker.build("vamsijakkula/hellowhale:${env.BUILD_ID}")
+                }
+            }
+        }
+    
+      stage("Push image") {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
+                    }
+                }
+            }
+        }
+
+    
+    stage('Deploy App') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "mykubeconfig")
+        }
+      }
+    }
+
+  }
+
+}
+
+# Push to Docker registry
+
+node {
+
+  checkout scm
+  def dockerImage
+
+  stage('Build image') {
+    dockerImage = docker.build("cheplorna/lorna:${env.BUILD_ID}")
+  }
+
+  stage('Push image') {
+    docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub') {
+      dockerImage.push()
+    }
+  }
+
+ stage('Deploy App') {
+      steps {
+        script {
+          kubernetesDeploy(kubeconfigId: "Kubecluster")
+}
+}
+}
+}

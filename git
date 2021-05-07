@@ -1,0 +1,67 @@
+#Configuring GIT
+-- Create Git directory (Directory to add the files that you wish to add to your git repository) - mkdir cheat
+-- Change to the directory - cd cheat
+-- Configure your Git reposiroty
+   git remote add origin <URL>
+   git config --global user.name <username>
+   git config --global user.email <email address>
+   git config --global color.ui true
+   git config --global core.editor emacs
+
+# Creating Local File
+-- Create your file -- vim git
+-- Enter information and save
+-- Save your changes to git
+
+# Push Changes to Git
+   git add -A
+   git commit -m "description"
+   git push -u origin master
+git pull #download everyone else's changes and work on the most current master . NB You pull before pushing
+git clone # make a copy of the entire remote repository and your local machine
+# commit any files you've added with the git add command and also commits any files you've changed since then
+  git commit -a
+
+# Show file differences which are not yet staged
+  git diff # show the actual changes that were made for all unstaged files
+  git diff --staged # show changes on staged files before being committed.
+  git diff --color-words # to see only the words you have changed
+# Staged and Unstaged changes
+staged - files have been marked for the next commit by using 'git add'
+unstaged - files have not been marked for the next commit. In this case, you can discard the changes by running 'git restore'
+
+# Git reset - unstages a file but preserves the file content
+git reset <filename>
+git reset commit  #undo all commits and preserves the changes locally
+git reset --hard commit # discards all history and goes back to the specified commit
+
+# git checkout - used to switch from one branch to another
+git branch # displays the current branch
+git checkout -b test # get out of the current branch, creates a new branch called test and switches to it.
+git merge # matches the specified branch history to the current brach
+git branch -m <new-branchname> #rename your current branch
+git checkout - #Lets you go to the last branch you were in without having to type the name
+git checkout . # erases all your work 
+# e.g
+git checkout <filename> . # erases all the work in that specific file
+
+
+# Connect local repository to the remote server
+git remote add [variable name] [remote server link]
+
+# git stash - if you have made some changes which you have not yet staged for commit and you realize that there is something to need to urgently address first. Instead of running 'git restore' to discard the changes which you may need after you have addressed the urgent situation, 'git stash' comes into play. It takes the changes and save them elsewhere and allows you to work on a clean branch. When you are done and want to get what was saved back, you run 'git stash apply'
+git stash
+git stash apply
+
+# or create a new branch with
+git stash branch <new branch>
+
+# git grep - lets you search your entire codebase for a phrase, printing out the line containing the phrase as well as the file containing it.
+#
+# Troubleshooting
+Scenerio1: fatal: remote origin already exists.
+Solution: git remote set-url origin https://<repository name>
+
+Scenerio2: fatal: refusing to merge unrelated histories
+Solution: git pull origin master --allow-unrelated-histories
+

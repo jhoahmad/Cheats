@@ -1,0 +1,10 @@
+# Create VMware VMs using ansible
+VMware ansible module is required: VMware_guest
+Install Python SDK for the VMware vSphere API that allows you to manage ESX, ESXi, and vCenter
+Requirements:
+Python2.6 >
+pyvmomi
+
+# Installations
+Install pip
+install pyvmomi - pip install pyvmomi
