@@ -12,13 +12,4 @@ node {
       dockerImage.push()
     }
   }
-
- stage('Deploy App') {
-	sh "kubectl get nodes"
-        script {
-          kubernetesDeploy(kubeconfigId: "Kubecluster2")
-}
-
-}
-
 }
