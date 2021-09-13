@@ -72,6 +72,8 @@ docker login docker.io # provide username and password when prompted
 
 docker login # provide login id and password
 
+# now tog image as shown below
+
 docker tag factorial cheplorna/lorna:factorial
 
 # where cheplorna is the username of my docker hub and lorna is the repository name, factorial being the name of the image.
