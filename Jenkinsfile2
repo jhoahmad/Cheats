@@ -1,0 +1,28 @@
+pipeline{
+agent any
+stages{
+stage("CHECKOUT GIT TO FETCH CODE"){
+steps {
+git credentialsId: 'GIT-CREDENTIALS', url: 'https://github.com/naxoduor/Hello-SpringBoot.git'
+}
+}
+stage("GRADLE BILD"){
+steps {
+bat './gradlew build'
+}
+}
+stage("DOCKER BUILD"){
+steps{
+bat 'docker version'
+bat 'docker build -t nax-docker-demo .'
+bat 'docker image list'
+bat 'docker tag nax-docker-demo naxoduor/nax-docker-demo:nax-docker-demo'
+}
+}
+stage("LOGIN TO DOCKER HUB AND PUSH"){
+steps{
+
+}
+}
+}
+}
