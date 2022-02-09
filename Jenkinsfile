@@ -13,7 +13,7 @@ node {
   }
 
   stage('Push image') {
-    docker.withRegistry('https://registry.hub.docker.com/', 'DockerHub') {
+    docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub') {
       dockerImage.push()
     }
   }
