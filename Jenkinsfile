@@ -15,6 +15,6 @@ node {
   
   stage('Deploy to minikube') {
     
-    sh "minikube kubectl -- apply -f deployment.yaml"
+    sh "ssh lorna@192.168.100.250 minikube kubectl -- apply -f deployment.yaml"
   }
 }
