@@ -14,8 +14,7 @@ node {
   }
   
   stage('Deploy to minikube') {
-            steps{
+    
                 sh "kubectl apply -f deployment.yaml"
-            }
   }
 }
