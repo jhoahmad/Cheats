@@ -13,13 +13,6 @@ node {
     }
   }
   
-  stage('Deploy to K8s')
-  {
- 
-    sshagent(['minikube-jenkins'])
-       sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml lorna@192.168.100.250:/path'
-  }
-  
   stage('Deploy to minikube') {
     
     sh "ssh lorna@192.168.100.250 minikube kubectl -- apply -f deployment.yaml"
