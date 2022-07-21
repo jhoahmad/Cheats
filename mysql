@@ -15,3 +15,6 @@ replicate-ignore-db=information_schema
 relay-log="mysql-relay-log"
 auto-increment-increment = 2
 auto-increment-offset = 1
+
+# query DB for sth
+select * from users where user_name='lorna'
