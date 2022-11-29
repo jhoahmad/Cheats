@@ -1,8 +1,6 @@
 node {
-  stages{
     stage('Checkout code') {
       checkout scm
-    }
   }
   
     stage('Build image') {
