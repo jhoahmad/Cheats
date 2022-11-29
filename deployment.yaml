@@ -33,10 +33,10 @@ name: hello
 labels:
   app: hello
 spec:
-ports:
+ ports:
   - port: 5000
     targetPort: 5000
-selector:
+ selector:
   app: hello
   tier: hello
-type: nodeport
+ type: nodeport
