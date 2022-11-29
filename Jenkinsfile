@@ -14,7 +14,6 @@ node {
       dockerImage.push()
         }
       }
-    }
   
   stage('Deploy to kubernetes') {
       sh "ssh lorna@192.168.100.58 StrictHostKeyChecking=no kubernetes kubectl -- apply -f deployment.yaml"
