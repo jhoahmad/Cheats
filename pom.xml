@@ -10,8 +10,9 @@
         <artifactId>my-module</artifactId>
         <version>3.6.3</version>
         <configuration>
-          <source>hello.java</source>
-          <target>11</target>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
         </configuration>
       </plugin>
     </plugins>
