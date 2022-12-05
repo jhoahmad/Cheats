@@ -16,7 +16,9 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>11</version>
         <configuration>
-         <mainClass>HelloFX</mainClass>
+         <includes>
+           <include>**/src/main/webapp/*.java</include>
+         </includes>
         </configuration>
       </plugin>
     </plugins>
