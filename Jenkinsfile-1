@@ -2,7 +2,7 @@ pipeline{
   agent any
   environment {
   PATH = "/opt/maven/bin:$PATH"
-  JDK_PATH = "/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+  JAVA_HOME = "/usr/lib/jvm/java-1.11.0-openjdk-amd64"
   }
   stages{
     stage('Build'){
