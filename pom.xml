@@ -18,6 +18,7 @@
         <configuration>
          <includes>
             <include>**/src/main/java/*.java</include>
+            <include>**/src/main/resources/*.xml</include>
           </includes>
         </configuration>
       </plugin>
