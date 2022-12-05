@@ -6,9 +6,12 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>11</version>
         <configuration>
-          <includes>
-            <include>*.java</include>
+         <includes>
+            <include>**/*.java</include>
           </includes>
         </configuration>
       </plugin>
