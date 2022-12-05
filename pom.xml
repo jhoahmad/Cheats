@@ -17,7 +17,7 @@
         <version>11</version>
         <configuration>
          <includes>
-            <include>*.java</include>
+            <include>**/*.java</include>
           </includes>
         </configuration>
       </plugin>
