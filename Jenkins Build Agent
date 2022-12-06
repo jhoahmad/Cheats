@@ -17,9 +17,10 @@ Configuring ssh in the build agent:
 # sudo apt install openssh-server
 # sudo useradd -d /var/lib/jenkins jenkins
 # sudo mkdir /var/lib/jenkins/.ssh
+# sudo touch /var/lib/jenkins/.ssh/known_hosts
 # cd /var/lib/jenkins/.ssh
 # sudo ssh-keygen -t rsa -C "jenkins agent key" -f "jenkinsagent_rsa"
-# cat jenkinsagent_rsa.pub | sudo tee authorized keys
+# cat jenkinsagent_rsa.pub | sudo tee authorized_keys
 # sudo chown -R jenkins:jenkins /var/lib/jenkins
 
 Master Node
