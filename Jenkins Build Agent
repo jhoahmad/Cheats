@@ -1,3 +1,12 @@
+Build agent: A separate server that receives instructions in the form of build job dispatches from the master.
+You can have different build agents running different OSes depending on what you want to build.
+
+Declaring an agent
+agent any:
+agent none
+agent { label 'linux'}
+
+Using a standalone build agent
 Master connects to the build agent through ssh
 Master initiates an ssh connection to the build agent using a pregenerated public and private key for authentication.
 Master also transfers a jar file, remoting.jar, which contains a compacted version of jenkins containing just the required components to perform a distributed build.
@@ -12,5 +21,12 @@ Configuring ssh in the build agent:
 # sudo ssh-keygen -t rsa -C "jenkins agent key" -f "jenkinsagent_rsa"
 # cat jenkinsagent_rsa.pub | sudo tee authorized keys
 # sudo chown -R jenkins:jenkins /var/lib/jenkins
+
+Master Node
+- Set credentials - ssh username with private key
+
+Add build agent:
+manage jenkins > manage nodes
+
 
 
