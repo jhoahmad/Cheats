@@ -1,0 +1,16 @@
+Master connects to the build agent through ssh
+Master initiates an ssh connection to the build agent using a pregenerated public and private key for authentication.
+Master also transfers a jar file, remoting.jar, which contains a compacted version of jenkins containing just the required components to perform a distributed build.
+
+Configuring ssh in the build agent:
+# sudo apt update
+# sudo apt install default-jre
+# sudo apt install openssh-server
+# sudo useradd -d /var/lib/jenkins jenkins
+# sudo mkdir /var/lib/jenkins/.ssh
+# cd /var/lib/jenkins/.ssh
+# sudo ssh-keygen -t rsa -C "jenkins agent key" -f "jenkinsagent_rsa"
+# cat jenkinsagent_rsa.pub | sudo tee authorized keys
+# sudo chown -R jenkins:jenkins /var/lib/jenkins
+
+
