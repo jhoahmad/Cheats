@@ -9,7 +9,7 @@
     <maven.compiler.target>1.@</maven.compiler.target>
  
   <build>
-      <plugins>
+  </plugins>
           <plugin>
               <groupId>org.openjfx</groupId>
               <artifactId>javafx-maven-plugin</artifactId>
