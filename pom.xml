@@ -10,7 +10,7 @@
  
   <build>
     <plugins>
-      <plugin>
+      <plugins>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
         <version>11</version>
